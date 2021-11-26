@@ -8,6 +8,7 @@ import {CategoryComponent} from "src/components/products_category/CategoryCompon
 import {ProductComponent} from "src/components/products/ProductComponent";
 import {ViewCategoriesComponent} from "src/components/products_category/ViewCategoriesComponent";
 import {ViewProductsComponent} from "src/components/products/ViewProductsComponent";
+import {LoginComponent} from "src/components/auth/LoginComponent";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 		return (
 				<Router>
 						<Switch>
+								<Route exact={true} path={routes.auth.login} component={LoginComponent}/>
 								<Route exact={true} path={routes.indexSlash} component={() => (
 										redirectToLogin !== undefined && redirectToLogin ?
 												<Redirect to={routes.auth.login} push={false}/> :
