@@ -31,6 +31,3 @@ Environment:
 
 ### Deploy to firebase hosting using bash script
 ``` cd deployments && ./service.sh << prod|test|preprod >>```
-
-### Firebase RealTime DB Configurations
-```src/config/firebase_config.js```
