@@ -1,5 +1,5 @@
 import React from "react";
-import {NavigationComponent} from "src/components/common/NavigationComponent";
+import {ViewOrdersComponent} from "src/components/orders/ViewOrdersComponent";
 
 /**
  *  Dashboard Index Component
@@ -8,21 +8,14 @@ import {NavigationComponent} from "src/components/common/NavigationComponent";
  */
 export function IndexPage() {
 
-	React.useEffect(() => {
+		React.useEffect(() => {
 
-		return () => {
+				return () => {
 
-		};
-	}, []);
+				};
+		}, []);
 
 
-	return (
-		<React.Fragment>
-			<NavigationComponent/>
-			<div className="main-content">
-				<div className="page-content">
-				</div>
-			</div>
-		</React.Fragment>
-	);
+		return <ViewOrdersComponent/>;
+
 }

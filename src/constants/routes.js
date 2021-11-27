@@ -6,6 +6,7 @@ const routes = {
 		index: PREFIX,
 		auth: {
 				login: `${PREFIX}/login`,
+				register: `${PREFIX}/register`,
 				reset_password: `${PREFIX}/reset-password`
 		},
 		products: {
@@ -15,8 +16,10 @@ const routes = {
 		category: {
 				create: `${PREFIX}/category`,
 				list: `${PREFIX}/categories`
+		},
+		users: {
+				list: `${PREFIX}/users`
 		}
-
 };
 
 module.exports = routes;

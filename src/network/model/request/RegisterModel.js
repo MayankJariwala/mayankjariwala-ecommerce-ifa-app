@@ -1,14 +1,27 @@
 export class RegisterModel {
-	name: string;
-	email: string;
-	session_token: string = "";
-	password: string;
-	is_approved: boolean;
+		first_name: string;
+		last_name: string;
+		email: string;
+		username: string;
+		password: string;
+		mobile: string;
+		type: string;
 
-	constructor(name: string, email: string, password: string, is_approved: boolean) {
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.is_approved = is_approved;
-	}
+		constructor(
+				first_name: string,
+				last_name: string,
+				email: string,
+				username: string,
+				password: string,
+				mobile: string,
+				type: string,
+		) {
+				this.first_name = first_name;
+				this.last_name = last_name;
+				this.email = email;
+				this.username = username;
+				this.password = password;
+				this.mobile = mobile;
+				this.type = type;
+		}
 }

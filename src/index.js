@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-// import {AdminContextProvider} from "src/context/AdminContext";
+import {AdminContextProvider} from "src/context/AdminContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/*<AdminContextProvider>*/}
+    <AdminContextProvider>
     <App/>
-    {/*</AdminContextProvider>*/}
+    </AdminContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

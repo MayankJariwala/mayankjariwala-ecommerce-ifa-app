@@ -2,15 +2,20 @@ import React from "react";
 import {Link} from "react-router-dom";
 import routes from "src/constants/routes";
 import "src/assets/css/custom/navigation.css";
+import {AdminSessionContext} from "src/context/AdminContext";
 
 export function NavigationComponent() {
 
+		const adminContext = React.useContext(AdminSessionContext);
+		const {adminContextDispatcher} = adminContext;
+
 		const logout = _ => {
-				// adminContextDispatcher({
-				// 	type: "logout"
-				// });
+				adminContextDispatcher({
+						type: "logout"
+				});
 				localStorage.removeItem("admin_data");
 				localStorage.removeItem("web_session_active");
+				localStorage.removeItem("user_role");
 				window.location = routes.auth.login;
 		};
 
@@ -19,32 +24,9 @@ export function NavigationComponent() {
 						<header id="page-topbar" className={"bg-dark"}>
 								<div className="navbar-header">
 										<div className="d-flex">
-												<div className="navbar-brand-box">
-														<Link to={"#"} className="logo logo-dark">
-								<span className="logo-sm">
-										<img
-												src="https://res.cloudinary.com/dmqm96bnk/image/upload/v1606084254/jari/WhatsApp_Image_2020-11-21_at_3.51.30_AM_koryyq.jpg"
-												alt="" height="22"/>
-								</span>
-																<span className="logo-lg">
-										<img
-												src="https://res.cloudinary.com/dmqm96bnk/image/upload/v1606084254/jari/WhatsApp_Image_2020-11-21_at_3.51.30_AM_koryyq.jpg"
-												alt="" height="17"/>
-								</span>
-														</Link>
-														<Link to={"#"} className="logo logo-light">
-								<span className="logo-sm">
-										<img
-												src="https://res.cloudinary.com/dmqm96bnk/image/upload/v1606084254/jari/WhatsApp_Image_2020-11-21_at_3.51.30_AM_koryyq.jpg"
-												alt="" height="22"/>
-									</span>
-																<span className="logo-lg">
-										<img
-												src="https://res.cloudinary.com/dmqm96bnk/image/upload/v1606084254/jari/WhatsApp_Image_2020-11-21_at_3.51.30_AM_koryyq.jpg"
-												alt="" height="19"/>
-								</span>
-														</Link>
-												</div>
+												<a href={routes.index}>
+														<h4 className={"text-white"}>E-Commerce Portal</h4>
+												</a>
 										</div>
 										<div className="dropdown d-inline-block">
 												<a className="dropdown-item text-danger" onClick={() => logout()} href="/#">
@@ -62,6 +44,11 @@ export function NavigationComponent() {
 																<li className="nav-item nav-link">
 																		<Link to={routes.index} className={"nav-color"}>
 																				<span key="t-dashboards">Dashboard</span>
+																		</Link>
+																</li>
+																<li className="nav-item nav-link">
+																		<Link to={routes.users.list} className={"nav-color"}>
+																				<span key="t-dashboards">Users</span>
 																		</Link>
 																</li>
 																<li className="nav-item dropdown">
@@ -104,7 +91,7 @@ export function NavigationComponent() {
 																						<a className="dropdown-item dropdown-toggle arrow-none"
 																						   href={routes.category.create}
 																						   id="topnav-form"
-																						   role="button"  aria-haspopup="true"
+																						   role="button" aria-haspopup="true"
 																						   aria-expanded="false">
 																								<span key="t-forms">Create</span>
 																						</a>

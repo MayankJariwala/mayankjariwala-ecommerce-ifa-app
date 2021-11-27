@@ -103,6 +103,7 @@ export function ViewProductsComponent() {
 						options: {
 								filter: false,
 								sort: false,
+								display: localStorage.getItem("user_role") === "admin",
 								customBodyRender: (value, tableMeta, updateValue) => {
 										const record = tableMeta.tableData[tableMeta.rowIndex];
 										return (
@@ -249,6 +250,12 @@ export function ViewProductsComponent() {
 																						sessionExpireMap.hasOwnProperty("error_message") &&
 																						<div className={"alert alert-danger"}>
 																								{sessionExpireMap["error_message"]}
+																						</div>
+																				}
+																				{
+																						products === undefined &&
+																						<div className="alert alert-info">
+																								Loading Products.....
 																						</div>
 																				}
 																				{

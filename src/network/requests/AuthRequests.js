@@ -5,8 +5,7 @@ import {LoginModel} from "src/network/model/request/LoginModel";
 import {LoginResponseModel, RegisterResponseModel} from "src/network/model/responses/AuthResponseModel";
 import {STATUS_CODES} from "src/network/HttpReferenceList";
 import {ExceptionResponse, NetworkExceptionResponse} from "src/network/model/Response";
-import {AdminRegisterModel} from "src/network/model/request/RegisterModel";
-import {AdminRegisterResponseModel} from "src/network/model/responses/AuthResponseModel";
+import {RegisterModel} from "src/network/model/request/RegisterModel";
 
 const LAYER_NAME = "AuthRequests";
 
@@ -16,49 +15,49 @@ const LAYER_NAME = "AuthRequests";
  */
 export class AuthRequests {
 
-	httpRequestMapper: HttpRequestMapper;
+		httpRequestMapper: HttpRequestMapper;
 
-	constructor() {
-		this.httpRequestMapper = new HttpRequestMapper();
-	}
-
-	login = async (login_model: LoginModel) => {
-		try {
-			Logging.log(LAYER_NAME, `Login Request object: ${JSON.stringify(login_model)}`);
-			const response = await this.httpRequestMapper.RNPostRequest(
-				{},
-				JSON.stringify(login_model),
-				Ep_auth._login()
-			);
-			Logging.log(LAYER_NAME, `Login response: ${JSON.stringify(response)}`);
-			if (response.status === STATUS_CODES.OK) {
-				return new LoginResponseModel(200, "Admin Information", response.data);
-			} else {
-				return new ExceptionResponse(response.data.status, response.data.message, response.data.stack, response.data.exception);
-			}
-		} catch (e) {
-			Logging.log(LAYER_NAME, `Login user exception: ${e.toString()}`);
-			return new NetworkExceptionResponse(500, "Something went wrong", e.toString(), "Network Exception");
+		constructor() {
+				this.httpRequestMapper = new HttpRequestMapper();
 		}
-	};
 
-	register = async (headers: any, model: AdminRegisterModel) => {
-		try {
-			Logging.log(LAYER_NAME, `Registration Request object: ${JSON.stringify(model)}`);
-			const response = await this.httpRequestMapper.RNPostRequest(
-				headers,
-				JSON.stringify(model),
-				Ep_auth._register()
-			);
-			Logging.log(LAYER_NAME, `Registration response: ${JSON.stringify(response)}`);
-			if (response.status === STATUS_CODES.OK) {
-				return new RegisterResponseModel(response.data.status, response.data.message);
-			} else {
-				return new ExceptionResponse(response.data.status, response.data.message, response.data.stack, response.data.exception);
-			}
-		} catch (e) {
-			Logging.log(LAYER_NAME, `Registration exception: ${e.toString()}`);
-			return new NetworkExceptionResponse(500, "Something went wrong", e.toString(), "Network Exception");
-		}
-	};
+		login = async (login_model: LoginModel) => {
+				try {
+						Logging.log(LAYER_NAME, `Login Request object: ${JSON.stringify(login_model)}`);
+						const response = await this.httpRequestMapper.RNPostRequest(
+								{},
+								JSON.stringify(login_model),
+								Ep_auth._login()
+						);
+						Logging.log(LAYER_NAME, `Login response: ${JSON.stringify(response)}`);
+						if (response.status === STATUS_CODES.OK) {
+								return new LoginResponseModel(200, "User Details", response.data);
+						} else {
+								return new ExceptionResponse(response.data.status, response.data.message, response.data.stack, response.data.exception);
+						}
+				} catch (e) {
+						Logging.log(LAYER_NAME, `Login user exception: ${e.toString()}`);
+						return new NetworkExceptionResponse(500, "Something went wrong", e.toString(), "Network Exception");
+				}
+		};
+
+		register = async (headers: any, model: RegisterModel) => {
+				try {
+						Logging.log(LAYER_NAME, `Registration Request object: ${JSON.stringify(model)}`);
+						const response = await this.httpRequestMapper.RNPostRequest(
+								headers,
+								JSON.stringify(model),
+								Ep_auth._register()
+						);
+						Logging.log(LAYER_NAME, `Registration response: ${JSON.stringify(response)}`);
+						if (response.status === STATUS_CODES.OK) {
+								return new RegisterResponseModel(200, "User Data");
+						} else {
+								return new ExceptionResponse(response.data.status, response.data.message, response.data.stack, response.data.exception);
+						}
+				} catch (e) {
+						Logging.log(LAYER_NAME, `Registration exception: ${e.toString()}`);
+						return new NetworkExceptionResponse(500, "Something went wrong", e.toString(), "Network Exception");
+				}
+		};
 }

@@ -79,6 +79,7 @@ export function ViewCategoriesComponent() {
 						options: {
 								filter: false,
 								sort: false,
+								display: localStorage.getItem("user_role") === "admin",
 								customBodyRender: (value, tableMeta, updateValue) => {
 										const record = tableMeta.tableData[tableMeta.rowIndex];
 										return (
@@ -221,6 +222,12 @@ export function ViewCategoriesComponent() {
 																						sessionExpireMap.hasOwnProperty("error_message") &&
 																						<div className={"alert alert-danger"}>
 																								{sessionExpireMap["error_message"]}
+																						</div>
+																				}
+																				{
+																						categories === undefined &&
+																						<div className="alert alert-info">
+																								Loading Categories.....
 																						</div>
 																				}
 																				{
