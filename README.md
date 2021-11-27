@@ -22,8 +22,8 @@
 
 Environment:
 
-    - URL: https://dliveadminpreprod.web.app/
-    - Email: dliveauctions.live@gmail.com
+    - URL: <<URL>>
+    - Email: <<email>>
     - Password: Ask Product Owner
     - Token: Look into ./service.sh file and if expired re-run above command with credentials and update new token
     - Firebase Json: ./firebase-preprod.json
