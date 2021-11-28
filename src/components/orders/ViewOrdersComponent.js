@@ -48,11 +48,14 @@ export function ViewOrdersComponent() {
 						}
 				},
 				{
-						name: "user_id",
+						name: "user_info",
 						label: "User Id",
 						options: {
 								filter: false,
-								sort: false
+								sort: false,
+								customBodyRender: (value, tableMeta, updateValue) => {
+										return value.hasOwnProperty("_id") ? value._id : value.accountId
+								}
 						}
 				},
 				{

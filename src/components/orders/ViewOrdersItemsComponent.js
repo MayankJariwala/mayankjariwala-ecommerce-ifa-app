@@ -32,11 +32,7 @@ export function ViewOrderItemsComponent({items}) {
 				},
 				{
 						name: "product_id",
-						label: "Product ID",
-						options: {
-								filter: false,
-								sort: false
-						}
+						label: "Product ID"
 				},
 				{
 						name: "quantity",

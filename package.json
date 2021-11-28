@@ -4,55 +4,55 @@
   "license": "DLiveAuction",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "4.11.1",
-    "@material-ui/icons": "4.9.1",
-    "@sweetalert/with-react": "0.1.1",
-    "@testing-library/jest-dom": "4.2.4",
-    "@testing-library/react": "9.3.2",
-    "@testing-library/user-event": "7.1.2",
-    "axios": "0.20.0",
-    "dreampact": "0.1.10",
-    "env-cmd": "10.1.0",
-    "mdbreact": "4.27.0",
-    "moment": "2.29.1",
-    "moment-timezone": "0.5.32",
-    "mui-datatables": "3.7.1",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "react-fontawesome": "1.7.1",
-    "react-helmet": "6.1.0",
-    "react-router": "5.2.0",
-    "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.3",
-    "react-select": "3.1.0",
-    "serve": "11.3.2",
-    "styled-components": "5.2.1",
-    "sweetalert": "2.1.2"
+	"@material-ui/core": "4.11.1",
+	"@material-ui/icons": "4.9.1",
+	"@sweetalert/with-react": "0.1.1",
+	"@testing-library/jest-dom": "4.2.4",
+	"@testing-library/react": "9.3.2",
+	"@testing-library/user-event": "7.1.2",
+	"axios": "0.20.0",
+	"dreampact": "0.1.10",
+	"env-cmd": "10.1.0",
+	"mdbreact": "4.27.0",
+	"moment": "2.29.1",
+	"moment-timezone": "0.5.32",
+	"mui-datatables": "3.7.1",
+	"react": "16.14.0",
+	"react-dom": "16.14.0",
+	"react-fontawesome": "1.7.1",
+	"react-helmet": "6.1.0",
+	"react-router": "5.2.0",
+	"react-router-dom": "5.2.0",
+	"react-scripts": "3.4.3",
+	"react-select": "3.1.0",
+	"serve": "11.3.2",
+	"styled-components": "5.2.1",
+	"sweetalert": "2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:test": "env-cmd -f .env.test react-scripts build",
-    "build:preprod": "env-cmd -f .env.preprod react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+	"start": "env-cmd -f .env react-scripts start",
+	"build": "env-cmd -f .env react-scripts build",
+	"start:herokuo": "env-cmd -f .env.production react-scripts build",
+	"build:heroku": "env-cmd -f .env.production react-scripts build",
+	"test": "react-scripts test",
+	"eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+	"extends": "react-app"
   },
   "devDependencies": {
-    "prop-types": "15.7.2"
+	"prop-types": "15.7.2"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+	"production": [
+	  ">0.2%",
+	  "not dead",
+	  "not op_mini all"
+	],
+	"development": [
+	  "last 1 chrome version",
+	  "last 1 firefox version",
+	  "last 1 safari version"
+	]
   }
 }
